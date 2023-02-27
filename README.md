@@ -73,4 +73,4 @@ pre-commit install
 ```
 pre-commit run --all-files
 ```
-- if getting pylint errors, fix them before pushing
+- if getting pylint errors, fix them and then commit again
