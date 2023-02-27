@@ -1,5 +1,12 @@
 # Code Style for Primenumbers.in
 
+## TLDR;
+
+- cd into your project git repo and run;
+```sh
+curl -s https://raw.githubusercontent.com/primenumbers-in/codestyle/main/install.sh | bash
+```
+
 ## Linting
 
 We use pylint for linting python files, which
@@ -16,7 +23,7 @@ $ which python
 ```sh
 pip install pylint
 ```
-- Copy the [.pylintrc](https://gist.github.com/dhruvSHA256/ae1c759688baee09e2ce60757c4c48eb#file-pylintrc) file to project root dir
+- Copy the [.pylintrc](.pylintrc) file to project root dir
 
 ### Installing [Pylint Plugin](https://github.com/leinardi/pylint-pycharm) in pycharm
 
