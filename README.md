@@ -2,8 +2,8 @@
 
 ## Linting
 
-We use pylint for linting python files, which 
-enforces code style rules specified in the [pylintrc](https://gist.github.com/dhruvSHA256/ae1c759688baee09e2ce60757c4c48eb#file-pylintrc) file.
+We use pylint for linting python files, which
+enforces code style rules specified in the [.pylintrc](.pylintrc) file.
 
 ### Installing [Pylint](https://pypi.org/project/pylint/)
 - Make sure you are using a python virtual env
@@ -16,7 +16,7 @@ $ which python
 ```sh
 pip install pylint
 ```
-- Copy the [pylintrc](https://gist.github.com/dhruvSHA256/ae1c759688baee09e2ce60757c4c48eb#file-pylintrc) file to project root dir
+- Copy the [.pylintrc](https://gist.github.com/dhruvSHA256/ae1c759688baee09e2ce60757c4c48eb#file-pylintrc) file to project root dir
 
 ### Installing [Pylint Plugin](https://github.com/leinardi/pylint-pycharm) in pycharm
 
@@ -55,7 +55,7 @@ pip install black[d]
 
 Although we have automated linting and formatting of code, we must prevent user from
 pushing unformatted code to the repo.
-For this we will use , which will run user specified hooks (linting and formatting in our case) 
+For this we will use , which will run user specified hooks (linting and formatting in our case)
 on every commit and will refuse to push code if any hook fails.
 
 ## Installing [pre-commit](https://pypi.org/project/pre-commit/)
@@ -64,7 +64,7 @@ on every commit and will refuse to push code if any hook fails.
 ```sh
 pip install pre-commit
 ```
-- Copy [.pre-commit-config.yaml](https://gist.github.com/dhruvSHA256/ae1c759688baee09e2ce60757c4c48eb#file-pre-commit-config-yaml) to project root dir
+- Copy [.pre-commit-config.yaml](.pre-commit-config.yaml) to project root dir
 - Install pre-commit hooks
 ```sh
 pre-commit install
@@ -73,3 +73,4 @@ pre-commit install
 ```
 pre-commit run --all-files
 ```
+- if getting pylint errors, fix them before pushing

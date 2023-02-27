@@ -1,0 +1,39 @@
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+fail_fast: false
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v3.2.0
+    hooks:
+    -   id: trailing-whitespace
+    -   id: end-of-file-fixer
+    -   id: check-merge-conflict
+    -   id: check-added-large-files
+-   repo: https://github.com/pycqa/isort
+    rev: 5.6.4
+    hooks:
+      - id: isort
+        types: [python]
+        exclude: ^.*\b(migrations)\b.*$|tests(/\w*)*/functional/|tests/input|tests(/\w*)*data/|doc/
+        args: ["--profile", "black"]
+-   repo: https://github.com/PyCQA/autoflake
+    rev: v2.0.0
+    hooks:
+      - id: autoflake
+        types: [python]
+        args: ["--in-place", "--remove-all-unused-import"]
+        exclude: ^.*\b(migrations)\b.*$|tests(/\w*)*/functional/|tests/input|tests(/\w*)*data/|doc/
+-   repo: https://github.com/psf/black
+    rev: 22.10.0
+    hooks:
+    -   id: black
+        types: [python]
+        exclude: ^.*\b(migrations)\b.*$|tests(/\w*)*/functional/|tests/input|tests(/\w*)*data/|doc/|^.*\b(manage\.py)$
+        args: ["--line-length", "120"]
+-   repo: https://github.com/PyCQA/pylint
+    rev: v3.0.0-a5
+    hooks:
+      - id: pylint
+        types: [python]
+        exclude: ^.*\b(migrations)\b.*$|tests(/\w*)*/functional/|tests/input|tests(/\w*)*data/|doc/|^.*\b(manage\.py)$
+        args: ["-rn", "-sn", "--rcfile=.pylintrc", "--fail-on=I"] # change rcfile location
