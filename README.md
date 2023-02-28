@@ -6,6 +6,7 @@
 ```sh
 curl -s https://gist.githubusercontent.com/dhruvSHA256/ae1c759688baee09e2ce60757c4c48eb/raw/6c3427fe0a45a78f0f4b2196abc9a832765edcfe/install.sh | bash
 ```
+- PS: still need to config pycharm plugins
 
 ## Linting
 
