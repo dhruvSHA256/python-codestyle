@@ -5,11 +5,11 @@ if [[ ! -d .git ]]; then
     exit 1
 fi
 
-precommit_config="https://gist.githubusercontent.com/dhruvSHA256/ae1c759688baee09e2ce60757c4c48eb/raw/427ceee22c6890ac84628356b4c7704ddaa13b52/.pre-commit-config.yaml"
-pylint_config="https://gist.githubusercontent.com/dhruvSHA256/ae1c759688baee09e2ce60757c4c48eb/raw/427ceee22c6890ac84628356b4c7704ddaa13b52/.pylintrc"
+precommit_config="https://gist.githubusercontent.com/dhruvSHA256/ae1c759688baee09e2ce60757c4c48eb/raw/e30ce2a600790457ea147ed990b63f434a39de63/.pre-commit-config.yaml"
+pylint_config="https://gist.githubusercontent.com/dhruvSHA256/ae1c759688baee09e2ce60757c4c48eb/raw/e30ce2a600790457ea147ed990b63f434a39de63/.pylintrc"
 venv="./.venv"
 
-if [[ ! -d .venv || ! -d venv ]]; then
+if [[ ! -d ./.venv && ! -d ./venv ]]; then
     echo "[*] No venv found, making: "
     /usr/bin/python3 -m venv .venv
 fi
@@ -22,10 +22,18 @@ fi
 if [[ ! -f "./.pre-commit-config.yaml" ]]; then
     echo "[*] No precommit config found, downloading default precommit config: "
     wget $precommit_config
+else
+    echo "[*] Existing precommit config found, renaming it "
+    mv ".pre-commit-config.yaml" ".pre-commit-config.yaml.bkp"
+    wget $precommit_config
 fi
 
 if [[ ! -f "./.pylintrc" ]]; then
     echo "[*] No pylint config found, downloading default pylint config: "
+    wget $pylint_config
+else
+    echo "[*] Existing pyling config found, renaming it "
+    mv ".pylintrc" ".pylintrc.bkp"
     wget $pylint_config
 fi
 
